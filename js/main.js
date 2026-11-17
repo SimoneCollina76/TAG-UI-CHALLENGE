@@ -125,14 +125,16 @@
     }
     mediaCards.push({ el: m, stop: stop });
 
-    if (canHover) {
-      // desktop: mouse over / out (as in the Figma prototype)
-      m.addEventListener('mouseenter', start);
-      m.addEventListener('mouseleave', stop);
-    } else {
-      // touch: tap to play, tap again to stop
-      m.addEventListener('click', function () { if (m.classList.contains('is-hover')) stop(); else start(); });
-    }
+    // Decide per interaction, not per device: a real mouse uses hover (as in Figma),
+    // a finger / pen toggles with a tap. Works on hybrid devices too.
+    var lastPointer = canHover ? 'mouse' : 'touch';
+    m.addEventListener('pointerdown', function (e) { lastPointer = e.pointerType || lastPointer; });
+    m.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') start(); });
+    m.addEventListener('pointerleave', function (e) { if (e.pointerType === 'mouse') stop(); });
+    m.addEventListener('click', function () {
+      if (lastPointer === 'mouse') return;               // mouse: handled by hover
+      if (m.classList.contains('is-hover')) stop(); else start();
+    });
     // any device: stop when the card scrolls out of view (checked by stopOffscreen below)
     mediaCards[mediaCards.length - 1].isOn = function () { return m.classList.contains('is-hover'); };
   });
@@ -149,9 +151,11 @@
     mediaCards.forEach(function (o) { if (o.isOn() && visibleRatio(o.el) < 0.35) o.stop(); });
     if (!tVideo.paused && visibleRatio(tVideo) < 0.35) tVideo.pause();
   }
-  window.addEventListener('scroll', function () {
-    if (!offTick) { offTick = true; setTimeout(stopOffscreen, 80); }
-  }, { passive: true });
+  function queueOffscreen() { if (!offTick) { offTick = true; setTimeout(stopOffscreen, 80); } }
+  // capture phase catches page scroll and any inner scroller; touchmove covers momentum on iOS
+  document.addEventListener('scroll', queueOffscreen, { passive: true, capture: true });
+  window.addEventListener('touchmove', queueOffscreen, { passive: true });
+  window.addEventListener('touchend', function () { setTimeout(stopOffscreen, 400); }, { passive: true });
 
   /* ---------- Trailer ---------- */
   var tVideo = document.getElementById('trailerVideo');
