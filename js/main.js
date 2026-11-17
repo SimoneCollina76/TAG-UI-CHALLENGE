@@ -150,6 +150,9 @@
     offTick = false;
     mediaCards.forEach(function (o) { if (o.isOn() && visibleRatio(o.el) < 0.35) o.stop(); });
     if (!tVideo.paused && visibleRatio(tVideo) < 0.35) tVideo.pause();
+    // overlays opened from a section close when that section scrolls away
+    if (!bio.hidden && bio.classList.contains('is-open') && visibleRatio(cast) < 0.2) closeBio();
+    if (!shareOv.hidden && shareOv.classList.contains('is-open') && visibleRatio(document.getElementById('footer')) < 0.2) closeShare();
   }
   function queueOffscreen() { if (!offTick) { offTick = true; setTimeout(stopOffscreen, 80); } }
   // capture phase catches page scroll and any inner scroller; touchmove covers momentum on iOS
@@ -204,6 +207,7 @@
   var actorBtn = document.getElementById('actorBtn');
   var bio = document.getElementById('bioCard');
   var cast = document.getElementById('cast');
+  var bioClose = document.getElementById('bioClose');
   function placeBio() {
     if (!isDesktop()) { bio.style.left = ''; bio.style.top = ''; return; } // tablet/mobile: centred by CSS
     // Figma: manual overlay at (+390, -45) from the button
@@ -260,11 +264,14 @@
     s.addEventListener('click', function () { flashSelected(s); });
   });
 
-  /* ---------- Close overlays on click outside / Esc ---------- */
-  document.addEventListener('click', function (e) {
-    if (!bio.hidden && !bio.contains(e.target)) closeBio();
-    if (!shareOv.hidden && !shareOv.contains(e.target)) closeShare();
+  /* ---------- Close overlays on tap/click outside / Esc ----------
+     pointerdown instead of click: iOS Safari does not fire click on
+     non-interactive areas, so "tap outside to close" never triggered there. */
+  document.addEventListener('pointerdown', function (e) {
+    if (!bio.hidden && !bio.contains(e.target) && !actorBtn.contains(e.target)) closeBio();
+    if (!shareOv.hidden && !shareOv.contains(e.target) && !shareBtn.contains(e.target)) closeShare();
   });
+  bioClose.addEventListener('click', closeBio);
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') { if (!bio.hidden) closeBio(); if (!shareOv.hidden) closeShare(); if (!mmenu.hidden) closeMenu(); }
   });
