@@ -89,7 +89,9 @@
   });
   synAudio.addEventListener('ended', function () { setSoundIcon(synBtn, false); });
 
-  /* ---------- Resources: hover swaps image -> video / image ---------- */
+  /* ---------- Resources: hover (desktop) or tap (touch) swaps image -> video / image ---------- */
+  var canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  var mediaCards = [];
   document.querySelectorAll('.media[data-hover-video], .media[data-hover-img]').forEach(function (m) {
     var layer;
     if (m.dataset.hoverVideo) {
@@ -103,7 +105,10 @@
     layer.className = 'media__hover';
     layer.setAttribute('aria-hidden', 'true');
     m.appendChild(layer);
-    m.addEventListener('mouseenter', function () {
+
+    function start() {
+      // only one clip at a time
+      mediaCards.forEach(function (o) { if (o.el !== m) o.stop(); });
       m.classList.add('is-hover');
       if (layer.tagName === 'VIDEO') {
         layer.currentTime = 0;
@@ -113,12 +118,40 @@
         var p = layer.play();
         if (p) p.catch(function () { layer.muted = true; var q = layer.play(); if (q) q.catch(function () {}); });
       }
-    });
-    m.addEventListener('mouseleave', function () {
+    }
+    function stop() {
       m.classList.remove('is-hover');
       if (layer.tagName === 'VIDEO') layer.pause();
-    });
+    }
+    mediaCards.push({ el: m, stop: stop });
+
+    if (canHover) {
+      // desktop: mouse over / out (as in the Figma prototype)
+      m.addEventListener('mouseenter', start);
+      m.addEventListener('mouseleave', stop);
+    } else {
+      // touch: tap to play, tap again to stop
+      m.addEventListener('click', function () { if (m.classList.contains('is-hover')) stop(); else start(); });
+    }
+    // any device: stop when the card scrolls out of view (checked by stopOffscreen below)
+    mediaCards[mediaCards.length - 1].isOn = function () { return m.classList.contains('is-hover'); };
   });
+
+  /* Stop clips / trailer that leave the viewport (touch screens have no mouseleave) */
+  function visibleRatio(el) {
+    var r = el.getBoundingClientRect(), vh = window.innerHeight || document.documentElement.clientHeight;
+    if (!r.height) return 0;
+    return Math.max(0, Math.min(r.bottom, vh) - Math.max(r.top, 0)) / r.height;
+  }
+  var offTick = false;
+  function stopOffscreen() {
+    offTick = false;
+    mediaCards.forEach(function (o) { if (o.isOn() && visibleRatio(o.el) < 0.35) o.stop(); });
+    if (!tVideo.paused && visibleRatio(tVideo) < 0.35) tVideo.pause();
+  }
+  window.addEventListener('scroll', function () {
+    if (!offTick) { offTick = true; setTimeout(stopOffscreen, 80); }
+  }, { passive: true });
 
   /* ---------- Trailer ---------- */
   var tVideo = document.getElementById('trailerVideo');
