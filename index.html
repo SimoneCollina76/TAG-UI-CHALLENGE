@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marty Supreme — Landing page concept</title>
+<meta name="description" content="Unofficial UI concept for the Marty Supreme landing page. Not affiliated with A24.">
+<meta name="robots" content="noindex">
+<link rel="preload" href="assets/fonts/pp-telegraf-ultrabold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/pp-telegraf-ultrabold-slanted.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/fonts.css?v=1">
+<link rel="stylesheet" href="css/style.css?v=1">
+</head>
+<body>
+<div class="stage" id="stage">
+
+  <!-- ============ HEADER (fixed) ============ -->
+  <header class="header" id="header">
+    <a class="header__logo" href="#hero">Marty <em>Supreme</em></a>
+    <nav class="menu" aria-label="Main">
+      <button class="menu__btn" data-index="1" data-target="synopsis">SYNOPSIS</button>
+      <button class="menu__btn" data-index="2" data-target="resources">RESOURCES</button>
+      <button class="menu__btn" data-index="3" data-target="cast">CAST</button>
+      <button class="menu__btn" data-index="4" data-target="trailer">TRAILER</button>
+      <button class="menu__btn" data-index="5" data-target="tickets">BUY TICKETS</button>
+    </nav>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="hero">
+    <video class="hero__video" src="assets/video/hero.mp4" poster="assets/video/hero-poster.jpg" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
+    <h1 class="hero__title">Marty <em>Supreme</em></h1>
+  </section>
+
+  <!-- ============ SYNOPSIS ============ -->
+  <section class="synopsis" id="synopsis">
+    <div class="synopsis__inner">
+      <div class="synopsis__top">
+        <div class="synopsis__row">
+          <h2 class="title-xl synopsis__title">Synopsis</h2>
+          <div class="synopsis__console">
+            <button class="sound-btn synopsis__sound" id="synopsisSound" aria-label="Play Marty's story" aria-pressed="false">
+              <span class="icon icon--waves" aria-hidden="true"></span>
+            </button>
+          </div>
+          <div class="synopsis__videofill" aria-hidden="true"></div>
+        </div>
+        <p class="synopsis__summary">In 1952 New York, ambitious and self-centered Marty Mauser dreams of becoming the world’s greatest table tennis player. Struggling with money, family pressure, and a reckless affair, Marty fights to reach the world championships in Japan, hoping victory will bring fame, fortune, and recognition. But as his determination grows, his impulsive choices threaten to destroy everything around him.</p>
+        <audio id="synopsisAudio" src="assets/audio/synopsis.mp3" preload="none"></audio>
+      </div>
+
+      <div class="synopsis__bottom">
+        <span class="hline" style="top:1px"></span>
+        <span class="hline" style="top:81px"></span>
+        <span class="hline" style="top:402px"></span>
+        <span class="vline" style="left:487px"></span>
+        <span class="vline" style="left:952px"></span>
+
+        <h3 class="credit-title" style="left:117px">Directed by</h3>
+        <h3 class="credit-title" style="left:604px">Written by</h3>
+        <h3 class="credit-title" style="left:1106px">Starring</h3>
+
+        <p class="credit-names" style="left:172px">Josh Safdie</p>
+        <p class="credit-names credit-names--center" style="left:604px">Josh Safdie<br>Ronald Bronstein</p>
+        <p class="credit-names credit-names--center" style="left:1067px;width:257px">Timothée Chalamet<br>Gwyneth Paltrow<br>Kevin O'Leary<br>Odessa A’zion<br>Abel Ferrara<br>Tyler Okonma</p>
+
+        <div class="poster-card poster-card--poster" style="left:22px">
+          <img src="assets/img/poster-card.webp" alt="Marty Supreme poster with Timothée Chalamet" width="450" height="700" loading="lazy">
+        </div>
+        <div class="poster-card poster-card--best" style="left:971px">
+          <img src="assets/img/poster-card.webp" alt="" width="450" height="700" loading="lazy">
+          <img src="assets/img/best-film.webp" alt="Marty Supreme — BAFTA Award nominations, Best Film" width="450" height="700" loading="lazy">
+        </div>
+
+        <div class="ball" aria-hidden="true">
+          <span class="ball__shadow"></span>
+          <span class="ball__img"><img src="assets/img/ball.webp" alt=""></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RESOURCES ============ -->
+  <section class="resources" id="resources">
+    <div class="resources__hero">
+      <img src="assets/img/resources-hero.webp" alt="" width="1440" height="909" loading="lazy">
+      <h2 class="title-xl resources__title">Resources</h2>
+    </div>
+
+    <div class="cards">
+      <article class="card card--1">
+        <h3 class="card__title">Desire</h3>
+        <div class="media" data-hover-video="assets/video/res-desire.mp4">
+          <img class="media__img" src="assets/img/res-desire.webp" alt="Still from Desire" loading="lazy">
+        </div>
+        <p class="card__caption" style="font-size:14.821px">When nothing can stop you and your heart leads you to the woman of your dreams.</p>
+      </article>
+
+      <article class="card card--2 card--right">
+        <h3 class="card__title">Losing Game</h3>
+        <div class="media" data-hover-video="assets/video/res-losing-game.mp4">
+          <img class="media__img" src="assets/img/res-losing.webp" alt="Still from Losing Game" loading="lazy">
+        </div>
+        <p class="card__caption">When every path seems lost and all hope is gone but the fire still burns! </p>
+      </article>
+
+      <article class="card card--center">
+        <div class="card__title-group">
+          <h3 class="card__title">Night &amp; Day</h3>
+          <p class="card__subtitle">Restless.</p>
+        </div>
+        <div class="media media--wide">
+          <img class="media__img media__img--nightday" src="assets/img/res-nightday.webp" alt="Still from Night &amp; Day" loading="lazy">
+        </div>
+        <p class="card__caption card__caption--big">Using your very last ounce of energy to make it.</p>
+      </article>
+
+      <article class="card card--3">
+        <h3 class="card__title">Chasing the Dream.</h3>
+        <div class="media" data-hover-video="assets/video/res-chasing-dream.mp4">
+          <img class="media__img" src="assets/img/res-chasing-a.webp" alt="" loading="lazy">
+          <img class="media__img" src="assets/img/res-chasing-b.webp" alt="Still from Chasing the Dream" loading="lazy">
+        </div>
+        <p class="card__caption">When the only purpose in your life is to chase a dream: the only one that makes you forget everything else!</p>
+      </article>
+
+      <article class="card card--4 card--right">
+        <h3 class="card__title">Whatever it takes..</h3>
+        <div class="media" data-hover-img="assets/img/res-whatever-hover.webp">
+          <img class="media__img" src="assets/img/res-whatever.webp" alt="Still from Whatever it takes" loading="lazy">
+        </div>
+        <p class="card__caption">When every gaming table becomes a must to making cash for the final competition.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ TRAILER ============ -->
+  <section class="trailer" id="trailer">
+    <video class="trailer__video" id="trailerVideo" src="assets/video/trailer.mp4" poster="assets/video/trailer-poster.jpg" muted playsinline preload="metadata"></video>
+    <div class="trailer__overlay">
+      <h2 class="title-xl trailer__title">Trailer</h2>
+      <div class="trailer__console">
+        <button class="trailer__play" id="trailerPlay" aria-label="Play trailer" aria-pressed="false">
+          <img class="play-icon" src="assets/icons/play.svg" alt="" width="30" height="30">
+          <span class="pause-icon" aria-hidden="true"><img src="assets/icons/pause-bar.svg" alt=""><img src="assets/icons/pause-bar.svg" alt=""></span>
+        </button>
+        <button class="sound-btn trailer__sound" id="trailerSound" aria-label="Unmute trailer" aria-pressed="false">
+          <span class="icon icon--waves" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GET TICKET CTA ============ -->
+  <section class="cta" id="tickets">
+    <p class="cta__text">Live the challenge of an ordinary 1950s American boy, chasing a dream and turning it into reality,<br>Book your seat and get your ticket now!</p>
+    <button class="cta__btn is-selected" id="ctaBtn" type="button">GET YOUR TICKET !</button>
+  </section>
+
+  <!-- ============ CAST ============ -->
+  <section class="cast" id="cast">
+    <div class="cast__left">
+      <div class="cast__list-wrap">
+        <ul class="cast__list">
+          <li>
+            <button class="actor-btn" id="actorBtn" aria-haspopup="dialog" aria-controls="bioCard">
+              <span class="actor-btn__ball"><span class="crop"><img src="assets/img/ball.webp" alt=""></span></span>
+              <span class="actor-btn__name">Timothée Chalamet</span>
+            </button>
+          </li>
+          <li>Gwyneth <em>  </em></li>
+          <li>Kevin <em>O'Leary</em></li>
+          <li>Odessa <em>A’zion</em></li>
+          <li>Abel <em>Ferrara</em></li>
+          <li>Tyler <em>Okonma</em></li>
+        </ul>
+      </div>
+      <div class="cast__title-row">
+        <span class="cast__spacer"></span>
+        <h2 class="title-xl cast__title">Cast</h2>
+      </div>
+    </div>
+    <div class="cast__right"><img src="assets/img/cast-bg.webp" alt="" loading="lazy"></div>
+
+    <!-- BIO overlay -->
+    <div class="bio" id="bioCard" role="dialog" aria-label="Timothée Chalamet biography" hidden>
+      <div class="bio__photo"><img src="assets/img/bio-chalamet.webp" alt="Timothée Chalamet playing table tennis" loading="lazy"></div>
+      <div class="bio__intro">
+        <p class="bio__name">Timothée Hal Chalamet</p>
+        <p class="bio__date">December 27, 1995 · New York, New York, United States</p>
+      </div>
+      <div class="bio__text">
+        <p>Timothée Hal Chalamet was born in Manhattan to a family deeply connected to the world of art and entertainment.</p>
+        <p>Son of Nicole Flender and Marc Chalamet, he has Russian, Polish, French, and English Jewish origins. He is the brother of actress Pauline Chalamet and the nephew of screenwriter Harold Flender.</p>
+        <p>Raised in New York, he started at a young age between commercials and theater. He made his film debut in 2014 with Interstellar and Men, Women &amp; Children.<br>The recognition came with Call Me by Your Name, which earned him an Oscar nomination for Best Actor.</p>
+        <p>Today he is considered one of the most talented and influential actors of his generation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ REVIEWS ============ -->
+  <section class="reviews" id="reviews">
+    <div class="rating">
+      <img class="rating__frame" src="assets/icons/rv-frame.svg" alt="">
+      <p class="rt" style="inset:9.26% 83.39% 86.47% 4.64%;color:#d87900;font-size:21px">FILM RATING</p>
+      <p class="rt rt--bs" style="inset:15.29% 61.25% 75.88% 4.64%;font-size:44px">MARTY SUPREME</p>
+      <p class="rt" style="inset:25% 71.52% 70.59% 4.64%;font-size:22px;color:rgba(255,255,255,.38)">2025 · DRAMA · 2H 29MIN</p>
+      <p class="rt rt--bs" style="inset:4.71% 4.64% 72.06% 80.54%;font-size:116px;color:#d87900;text-align:right">7.6</p>
+      <p class="rt" style="inset:24.12% 4.73% 70.29% 91.07%;font-size:28px;color:rgba(255,255,255,.66);text-align:right">/ 10</p>
+
+      <p class="rt rt--n" style="inset:42.79% 90.37% 52.94% 8.73%">1</p>
+      <p class="rt rt--n" style="inset:42.79% 81.12% 52.94% 17.63%">2</p>
+      <p class="rt rt--n" style="inset:42.79% 72.05% 52.94% 26.7%">3</p>
+      <p class="rt rt--n" style="inset:42.79% 62.98% 52.94% 35.77%">4</p>
+      <p class="rt rt--n" style="inset:42.79% 53.91% 52.94% 44.84%">5</p>
+      <p class="rt rt--n" style="inset:42.79% 44.84% 52.94% 53.91%">6</p>
+      <p class="rt rt--n" style="inset:42.79% 35.86% 52.94% 63.07%;color:#fff">7</p>
+      <p class="rt rt--n" style="inset:42.79% 26.7% 52.94% 72.05%;color:#d87900">8</p>
+      <p class="rt rt--n" style="inset:42.79% 17.62% 52.94% 81.13%">9</p>
+      <p class="rt rt--n" style="inset:42.79% 8.11% 52.94% 89.75%">10</p>
+
+      <div class="rp" style="inset:50.59% 4.64% 46.47% 4.64%"><img style="top:-5%;height:110%" src="assets/icons/rv-track.svg" alt=""></div>
+      <div class="rp" style="inset:50.59% 4.64% 46.47% 4.64%"><img src="assets/icons/rv-clip.svg" alt=""></div>
+      <div class="rp rating__ticks" style="inset:50.59% 13.71% 46.47% 13.71%"><img style="left:-0.11%;width:100.22%" src="assets/icons/rv-fill.svg" alt=""></div>
+      <div class="rp" style="inset:47.06% 22.5% 40% 69.64%"><img src="assets/icons/rv-glow.svg" alt=""></div>
+      <div class="rp" style="inset:37.65% 23.04% 56.47% 70.18%"><img style="top:-2.5%;left:-1.19%;width:102.38%;height:105%" src="assets/icons/rv-badge.svg" alt=""></div>
+      <p class="rt" style="inset:38.68% 25.18% 57.06% 72.32%;font-size:21px;color:#d87900;text-align:center">7.6</p>
+      <div class="rp" style="inset:47.94% 23.04% 40.88% 70.18%"><img style="top:-1.32%;left:-1.19%;width:102.38%;height:102.64%" src="assets/icons/rv-knob.svg" alt=""></div>
+      <div class="rp" style="inset:51.2% 25.03% 44.41% 72.16%"><img src="assets/icons/rv-star.svg" alt=""></div>
+      <div class="rp" style="inset:72.06% 4.64% 27.94% 4.64%"><img style="top:-1px;height:calc(100% + 2px)" src="assets/icons/rv-divider.svg" alt=""></div>
+
+      <p class="rt" style="inset:76.47% 88.75% 19.56% 4.64%;font-size:20px;color:rgba(255,255,255,.38)">RATING</p>
+      <p class="rt rt--bs" style="inset:81.76% 90.71% 11.03% 4.64%;font-size:36px;color:#d87900">7.6</p>
+      <p class="rt" style="inset:83.82% 86.34% 11.76% 10.36%;font-size:22px;color:rgba(255,255,255,.66)">/ 10</p>
+      <div class="rp" style="top:75%;bottom:7.35%;left:34.82%;right:65.18%"><img style="left:-1px;width:calc(100% + 2px)" src="assets/icons/rv-vline.svg" alt=""></div>
+      <p class="rt" style="inset:76.47% 57.23% 19.56% 37.32%;font-size:20px;color:rgba(255,255,255,.38)">STARS</p>
+      <div class="rp" style="inset:84.32% 45.83% 12.16% 37.62%"><img style="top:-4.17%;width:100.49%;height:108.34%" src="assets/icons/rv-stars.svg" alt="3 out of 5 stars"></div>
+      <div class="rp" style="top:75%;bottom:7.35%;left:65.18%;right:34.82%"><img style="left:-1px;width:calc(100% + 2px)" src="assets/icons/rv-vline.svg" alt=""></div>
+      <p class="rt" style="inset:76.47% 26.7% 19.56% 67.68%;font-size:20px;color:rgba(255,255,255,.38)">VOTES</p>
+      <p class="rt rt--bs" style="inset:81.76% 25.36% 11.03% 67.68%;font-size:36px">1.2K</p>
+      <p class="rt" style="inset:83.82% 20.71% 11.76% 74.29%;font-size:22px;color:rgba(255,255,255,.66)">users</p>
+    </div>
+    <!-- Mobile rating card (Figma: RATING_CARD_MOBILE) -->
+    <div class="rating-m" aria-label="Film rating 7.6 out of 10">
+      <div class="rating-m__top">
+        <div>
+          <p class="rating-m__eyebrow">FILM RATING</p>
+          <p class="rating-m__title">MARTY SUPREME</p>
+          <p class="rating-m__meta">2025 · DRAMA · 2H 29MIN</p>
+        </div>
+        <div class="rating-m__score"><p class="rating-m__big">7.6</p><p class="rating-m__of">/ 10</p></div>
+      </div>
+      <div class="rating-m__slider">
+        <ol class="rating-m__nums"><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li class="is-white">7</li><li class="is-orange">8</li><li>9</li><li>10</li></ol>
+        <div class="rating-m__track"><span class="rating-m__fill"></span>
+          <span class="rating-m__knob"><span class="rating-m__badge">7.6</span><img src="assets/icons/rv-star.svg" alt=""></span>
+        </div>
+      </div>
+      <div class="rating-m__stats">
+        <div><p class="rating-m__label">RATING</p><p class="rating-m__val"><b class="o">7.6</b> <span>/ 10</span></p></div>
+        <div><p class="rating-m__label">STARS</p><img class="rating-m__stars" src="assets/icons/rv-stars.svg" alt="3 out of 5 stars"></div>
+        <div><p class="rating-m__label">VOTES</p><p class="rating-m__val"><b>1.2K</b> <span>users</span></p></div>
+      </div>
+    </div>
+    <p class="reviews__cta">Read all reviews on&nbsp; <a href="https://www.imdb.com/title/tt32916440/reviews/?ref_=tt_ururv_sm" target="_blank" rel="noopener">IMDb</a></p>
+  </section>
+
+  <!-- ============ PRESS ============ -->
+  <section class="press" id="press">
+    <div class="press__inner">
+      <span class="hline" style="top:289px"></span>
+      <span class="hline" style="top:375px"></span>
+      <span class="hline" style="top:753px"></span>
+      <h2 class="title-xl press__title">Press</h2>
+      <div class="press__slider">
+        <div class="press__track" id="pressTrack">
+          <article class="press__card is-active">
+            <p class="press__journal">New Yorker</p>
+            <p class="press__quote">"An electric portrait of American ambition, where the sports dream becomes obsession and spectacle.<br><em>Marty Supreme</em> transforms ping pong into an existential battle, with an energy that leaves no room for breath."</p>
+          </article>
+          <article class="press__card">
+            <p class="press__journal">America Magazine</p>
+            <p class="press__quote">"There’s a bit of “The Hustler” in “Marty Supreme”: The guy with the money to finance Marty’s career.. also demands more than Marty can give—while being unaware that his own actress wife (Gwyneth Paltrow) has been frequenting Marty’s bed. <a href="https://www.americamagazine.org/film/2025/12/25/marty-supreme-review-timothee-chalamets-passage-into-cinematic-adulthood/" target="_blank" rel="noopener">Read More</a></p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ A24 LOGO ============ -->
+  <div class="a24"><img src="assets/img/a24.webp" alt="A24" width="447" height="252" loading="lazy"></div>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer" id="footer">
+    <div class="footer__main">
+      <div class="footer__left">
+        <a class="footer__logo" href="https://a24films.com/films/marty-supreme" target="_blank" rel="noopener">Marty <em>Supreme</em></a>
+        <nav class="footer__menu" aria-label="Footer">
+          <button data-target="synopsis">Synopsis</button>
+          <button data-target="resources">Resources</button>
+          <button data-target="cast">Cast</button>
+          <button data-target="press">Press</button>
+        </nav>
+      </div>
+      <div class="footer__right">
+        <button class="share-btn" id="shareBtn" aria-haspopup="dialog" aria-controls="shareOverlay">
+          <span>Share</span>
+          <span class="icon icon--share" aria-hidden="true"></span>
+        </button>
+        <div class="socials">
+          <a class="social" href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><span class="icon icon--fb"></span></a>
+          <a class="social" href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><span class="icon icon--ig"></span></a>
+          <a class="social" href="https://x.com/" target="_blank" rel="noopener" aria-label="X"><span class="icon icon--x"></span></a>
+        </div>
+        <div class="share-overlay" id="shareOverlay" role="dialog" aria-label="Share" hidden>
+          <img src="assets/img/share-overlay.webp" alt="Share options" width="410" height="109">
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ SITE CLOSE ============ -->
+  <section class="site-close">
+    <div class="site-close__content">
+      <p class="site-close__note">UNOFFICIAL CONCEPT, NOT AFFILIATED WITH A24: TALENT GARDEN UI MASTER CHALLENGE, LED BY MIRKO SANTANGELO (PAPER TIGER AGENCY – NJ, USA)</p>
+      <a class="site-close__btn" href="https://simonecollina.com/websites-portfolio">TORNA AL SITO</a>
+    </div>
+  </section>
+
+</div>
+
+<!-- Mobile menu overlay (Figma: MENU_OVERLAY) -->
+<div class="mmenu" id="mobileMenu" role="dialog" aria-label="Menu" hidden>
+  <div class="mmenu__panel">
+    <div class="mmenu__top">
+      <p class="mmenu__title">Menu</p>
+      <button class="mmenu__close" id="mmenuClose" aria-label="Close menu">✕</button>
+    </div>
+    <button class="mmenu__item" data-target="synopsis">SYNOPSIS</button>
+    <button class="mmenu__item" data-target="resources">RESOURCES</button>
+    <button class="mmenu__item" data-target="cast">CAST</button>
+    <button class="mmenu__item" data-target="trailer">TRAILER</button>
+    <button class="mmenu__item" data-target="tickets">BUY TICKETS</button>
+  </div>
+</div>
+<script src="js/main.js?v=1"></script>
+</body>
+</html>

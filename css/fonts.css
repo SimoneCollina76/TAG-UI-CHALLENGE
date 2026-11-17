@@ -1,0 +1,36 @@
+/* PP Telegraf — Pangram Pangram (self-hosted, 5 styles used in the Figma landing) */
+@font-face {
+  font-family: "PP Telegraf";
+  src: url("../assets/fonts/pp-telegraf-regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PP Telegraf";
+  src: url("../assets/fonts/pp-telegraf-regular-slanted.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PP Telegraf";
+  src: url("../assets/fonts/pp-telegraf-bold-slanted.woff2") format("woff2");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PP Telegraf";
+  src: url("../assets/fonts/pp-telegraf-ultrabold.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PP Telegraf";
+  src: url("../assets/fonts/pp-telegraf-ultrabold-slanted.woff2") format("woff2");
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
