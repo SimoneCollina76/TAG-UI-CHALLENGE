@@ -169,6 +169,8 @@ em { font-style: italic; }
 .cta__text { width: 100%; font-weight: 700; font-style: italic; font-size: 48px; line-height: 1.1; }
 .cta__btn {
   width: 288px; height: 108px; padding: 0 5px; border-radius: 12px; flex-shrink: 0;
+  /* PP Telegraf caps sit high in the line box: optical centring */
+  display: flex; align-items: center; justify-content: center; line-height: 1; padding-top: .2em;
   background: var(--orange); color: #fff; font-weight: 800; font-size: 26.31px;
   transition: background-color .3s ease, color .3s ease;
 }
@@ -265,7 +267,7 @@ em { font-style: italic; }
 .site-close { top: 10969px; left: 0; width: 1440px; height: 363px; background: #000; padding-top: 48px; }
 .site-close__content { padding: 64px 160px 72px; display: flex; flex-direction: column; align-items: center; gap: 32px; }
 .site-close__note { width: 100%; font-weight: 800; font-size: 24px; line-height: 1.4; letter-spacing: .03em; text-align: center; text-transform: uppercase; }
-.site-close__btn { display: inline-flex; padding: 24px 40px; border-radius: 12px; background: var(--grey); color: var(--orange); font-weight: 800; font-size: 26px; text-decoration: none; transition: background-color .3s, color .3s; }
+.site-close__btn { display: inline-flex; line-height: 1; padding: calc(24px + .2em) 40px 24px; border-radius: 12px; background: var(--grey); color: var(--orange); font-weight: 800; font-size: 26px; text-decoration: none; transition: background-color .3s, color .3s; }
 .site-close__btn:hover { background: #fff; }
 
 /* Elements that exist only on tablet / mobile */
@@ -516,7 +518,7 @@ em { font-style: italic; }
   .site-close { padding: 56px 20px; }
   .site-close__content { gap: 24px; }
   .site-close__note { font-size: 14px; }
-  .site-close__btn { font-size: 20px; padding: 18px 28px; }
+  .site-close__btn { font-size: 20px; padding: calc(18px + .2em) 28px 18px; }
 }
 
 /* Accessibility */

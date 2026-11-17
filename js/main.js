@@ -95,7 +95,7 @@
     if (m.dataset.hoverVideo) {
       layer = document.createElement('video');
       layer.src = m.dataset.hoverVideo;
-      layer.muted = true; layer.loop = true; layer.playsInline = true; layer.preload = 'none';
+      layer.loop = true; layer.playsInline = true; layer.preload = 'metadata';
     } else {
       layer = document.createElement('img');
       layer.src = m.dataset.hoverImg; layer.alt = ''; layer.loading = 'lazy';
@@ -105,7 +105,14 @@
     m.appendChild(layer);
     m.addEventListener('mouseenter', function () {
       m.classList.add('is-hover');
-      if (layer.tagName === 'VIDEO') { layer.currentTime = 0; var p = layer.play(); if (p) p.catch(function () {}); }
+      if (layer.tagName === 'VIDEO') {
+        layer.currentTime = 0;
+        // try with sound; browsers allow it once the visitor has clicked/tapped on the page,
+        // otherwise fall back to a silent preview
+        layer.muted = false;
+        var p = layer.play();
+        if (p) p.catch(function () { layer.muted = true; var q = layer.play(); if (q) q.catch(function () {}); });
+      }
     });
     m.addEventListener('mouseleave', function () {
       m.classList.remove('is-hover');
